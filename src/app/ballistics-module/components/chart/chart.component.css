@@ -1,0 +1,27 @@
+.card-body {
+	padding: 5px
+}
+.card-footer {
+	background-color: rgb(227, 229, 237);
+}
+.font-size-small {
+	font-size: 0.7em;
+}
+.tooltip {
+	position: fixed;
+}
+@media (min-width: 576px) {
+    .font-size-small {
+        font-size: 0.8em;
+    }
+}
+@media (min-width: 992px) {
+    .font-size-small {
+        font-size: 0.9em;
+    }
+}
+@media (min-width: 1200px) {
+    .card {
+        width: 1200px;
+    }
+}

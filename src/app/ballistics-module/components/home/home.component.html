@@ -1,0 +1,66 @@
+﻿<div class='home'>
+  <div>
+    <label class="btn btn-info" (change)="importData($event)">
+      Import <input type="file" multiple="false" accept=".json" hidden>
+    </label>
+    &nbsp;
+    <label class="btn btn-info" (click)="exportData()">Export</label>
+  </div>
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    <app-weather></app-weather>
+    <app-target></app-target>
+    <app-firearms></app-firearms>
+    <app-firearm></app-firearm>
+    <app-rounds></app-rounds>
+    <app-round></app-round>
+  </div>
+  <div *ngIf='ranges'>
+    <app-chart class="d-flex flex-fill justify-content-center"></app-chart>
+    <br/>
+    <button class='btn btn-success' (click)="graphType==='line' ? graphType='bar' : graphType='line'">Change Graph
+      Type
+    </button>
+    <div class="d-flex flex-fill flex-row flex-wrap justify-content-around">
+      <div class="graph-inline">
+        <h3>Velocity (feet/sec)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="velocityFPS" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='0'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Energy (foot pounds)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="energyFtLbs" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='0'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Time (seconds)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="timeSeconds" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='2'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Drop (inches)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="dropInches" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='1'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Elevation (inches)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="verticalPositionInches"
+                  [width]="graphWidth" [height]="graphHeight" labels='none' [yToFixed]='1'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Cross Wind Drift (inches)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="crossWindDriftInches" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='1'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Lead (inches)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="leadInches" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='1'></d3-graph>
+      </div>
+      <div class="graph-inline">
+        <h3>Slant Hold (inches - hold low)</h3>
+        <d3-graph [type]="graphType" [data]="ranges" xKey="rangeYards" yKey="slantDropInches" [width]="graphWidth"
+                  [height]="graphHeight" labels='none' [yToFixed]='1'></d3-graph>
+      </div>
+    </div>
+  </div>
+</div>
