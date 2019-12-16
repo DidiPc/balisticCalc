@@ -69,7 +69,6 @@ export class HomeComponent implements OnInit {
 
   importData(event) {
     if (event.target.files.length !== 1) {
-      console.error('No file selected');
     } else {
       const reader = new FileReader();
       reader.onloadend = (e) => {
